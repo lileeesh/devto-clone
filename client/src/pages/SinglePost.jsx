@@ -27,7 +27,7 @@ export default function SinglePost() {
   const userId = getUserId()
 
   useEffect(() => {
-    axios.get(`/api/posts/${id}`)
+  axios.get(`${import.meta.env.VITE_API_URL}/api/posts/${id}`)
       .then(res => {
         setPost(res.data)
         setEditData(res.data)
@@ -41,7 +41,7 @@ export default function SinglePost() {
   const handleDelete = async () => {
     if (!window.confirm("Delete this post?")) return
     try {
-      await axios.delete(`/api/posts/${id}`, {
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/posts/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       navigate('/')
@@ -51,7 +51,7 @@ export default function SinglePost() {
   const handleUpdate = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.put(`/api/posts/${id}`, editData, {
+      const res = axios.put(`${import.meta.env.VITE_API_URL}/api/posts/${id}`, editData, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setPost(res.data)
@@ -62,7 +62,7 @@ export default function SinglePost() {
   const handleLike = async () => {
     if (!token) return navigate('/auth')
     try {
-      const res = await axios.post(`/api/posts/${id}/like`, {}, {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/posts/${id}/like`, {}, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setPost(res.data.post)
@@ -75,7 +75,7 @@ export default function SinglePost() {
     if (!token) return navigate('/auth')
     if (!comment.trim()) return
     try {
-      const res = await axios.post(`/api/posts/${id}/comments`, { text: comment }, {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/posts/${id}/comments`, { text: comment }, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setPost(res.data)
@@ -87,10 +87,10 @@ export default function SinglePost() {
     if (!token) return navigate('/auth')
     try {
       if (bookmarked) {
-        await axios.delete(`/api/bookmarks/${post._id}`, { headers: { Authorization: `Bearer ${token}` } })
+        await axios.delete(`${import.meta.env.VITE_API_URL}/api/bookmarks/${post._id}`, { headers: { Authorization: `Bearer ${token}` } })
         setBookmarked(false)
       } else {
-        await axios.post(`/api/bookmarks/${post._id}`, {}, { headers: { Authorization: `Bearer ${token}` } })
+        await axios.post(`${import.meta.env.VITE_API_URL}/api/bookmarks/${post._id}`, {}, { headers: { Authorization: `Bearer ${token}` } })
         setBookmarked(true)
       }
     } catch (err) { console.log(err) }

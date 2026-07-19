@@ -16,7 +16,7 @@ export default function PostForm() {
 
   useEffect(() => {
     if (isEditMode) {
-      axios.get(`/api/posts/${id}`)
+      axios.get(`${import.meta.env.VITE_API_URL}/api/posts/${id}`)
         .then(res => {
           setTitle(res.data.title)
           setContent(res.data.content)

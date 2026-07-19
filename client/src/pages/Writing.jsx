@@ -12,7 +12,7 @@ export default function Writing() {
 
   const fetchPosts = () => {
     if (!token) { setLoading(false); return }
-    axios.get('/api/posts/my-posts', { 
+    axios.get(`${import.meta.env.VITE_API_URL}/api/posts/my-posts`,  { 
       headers: { Authorization: `Bearer ${token}` } 
     })
     .then(res => { 
@@ -30,7 +30,7 @@ export default function Writing() {
   const handleDelete = async (id) => {
     if(window.confirm("Delete this post?")){
       try {
-        await axios.delete(`/api/posts/${id}`, { headers: { Authorization: `Bearer ${token}` } })
+        await axios.delete(`${import.meta.env.VITE_API_URL}/api/posts/${id}`, { headers: { Authorization: `Bearer ${token}` } })
         setPosts(posts.filter(p => p._id !== id))
       } catch(err) { alert("Failed to delete") }
     }
