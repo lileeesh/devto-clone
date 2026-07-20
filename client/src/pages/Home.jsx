@@ -113,6 +113,10 @@ export default function Home() {
             <Link to="#" className="hover:text-dev-purple py-1 px-2 rounded hover:bg-gray-100">VIDEOS</Link>
             <Link to="#" className="hover:text-dev-purple py-1 px-2 rounded hover:bg-gray-100">DEV HELP</Link>
             <Link to="#" className="hover:text-dev-purple py-1 px-2 rounded hover:bg-gray-100">DEV EDUCATION TRACK</Link>
+             <Link to="#" className="hover:text-dev-purple py-1 px-2 rounded hover:bg-gray-100">DEV CHALLENGE</Link>
+            <Link to="#" className="hover:text-dev-purple py-1 px-2 rounded hover:bg-gray-100">VIDEOS</Link>
+            <Link to="#" className="hover:text-dev-purple py-1 px-2 rounded hover:bg-gray-100">DEV HELP</Link>
+            <Link to="#" className="hover:text-dev-purple py-1 px-2 rounded hover:bg-gray-100">DEV EDUCATION TRACK</Link>
           </div>
         </div>
       </aside>
