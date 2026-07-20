@@ -18,7 +18,7 @@ const __dirname = path.dirname(__filename)
 const allowedOrigins = [
   'http://localhost:5173',
   'https://devto-clone-l70omnhvc-nana-devto.vercel.app',
-  'https://devto-clone-i824d5w49-nana-devto.vercel.app'  
+  'https://devto-clone-i824d5w49-nana-devto.vercel.app' 
 ]
 
 app.use(cors({
